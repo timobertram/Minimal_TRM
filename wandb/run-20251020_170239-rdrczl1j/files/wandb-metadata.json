@@ -1,0 +1,61 @@
+{
+  "os": "Linux-6.14.3-arch1-1-x86_64-with-glibc2.41",
+  "python": "CPython 3.11.6",
+  "startedAt": "2025-10-20T15:02:39.302276Z",
+  "program": "/home/fawler/tbertram/Minimal_TRM/main.py",
+  "codePath": "main.py",
+  "codePathLocal": "main.py",
+  "git": {
+    "remote": "git@github.com:timobertram/Minimal_TRM.git",
+    "commit": "c9c8ab6bb9ec24b392327651382fe46309a680eb"
+  },
+  "email": "bertram_timo@gmx.de",
+  "root": "/home/fawler/tbertram/Minimal_TRM",
+  "host": "mach-1",
+  "executable": "/home/fawler/tbertram/.pyenv/versions/python311-env/bin/python",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "gpu_count": 4,
+  "disk": {
+    "/": {
+      "total": "342386278400",
+      "used": "47015804928"
+    }
+  },
+  "memory": {
+    "total": "540658008064"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-477be773-1ff8-894e-1a94-fb728481f332"
+    },
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-3a915af2-8e05-3b33-efb8-f1e66b040094"
+    },
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-d2cdfe87-dbab-13d9-9e61-7e3ee23ff979"
+    },
+    {
+      "name": "NVIDIA A100-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-d561523f-c3c8-3df5-f72e-75e7290f6880"
+    }
+  ],
+  "cudaVersion": "12.8",
+  "writerId": "43qu319cqg3lj6xy2xlgxerqzclnlbre"
+}

@@ -1,0 +1,16 @@
+New test acc: 0.1024
+Training: 100%|██████████████████████████████████████████████████████████████| 469/469 [00:28<00:00, 16.51it/s, loss=0.5448]
+New test acc: 0.8379
+Training: 100%|██████████████████████████████████████████████████████████████| 469/469 [00:30<00:00, 15.52it/s, loss=3.9417]
+New test acc: 0.8968
+Training: 100%|███████████████████████████████████████████████████████████████████████████| 469/469 [00:26<00:00, 17.83it/s]
+/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+New test acc: 0.9028
+Training: 100%|██████████████████████████████████████████████████████████████| 469/469 [00:26<00:00, 17.60it/s, loss=1.3413]
+New test acc: 0.9168
+Training: 100%|██████████████████████████████████████████████████████████████| 469/469 [00:38<00:00, 12.24it/s, loss=1.0327]
+New test acc: 0.9059
+Training:  85%|████████████████████████████████████████████████████▉         | 400/469 [00:32<00:04, 14.36it/s, loss=1.2096]
