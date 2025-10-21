@@ -1,0 +1,68 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            6ettul2dvuv72p0t0w6rqfmwqov5t8ql:
+                codePath: main.py
+                codePathLocal: main.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "12.8"
+                disk:
+                    /:
+                        total: "342386278400"
+                        used: "47015948288"
+                email: bertram_timo@gmx.de
+                executable: /home/fawler/tbertram/.pyenv/versions/python311-env/bin/python
+                git:
+                    commit: 0bdfd21f17d0e3d9f5e3db5018d5183a8146e32a
+                    remote: git@github.com:timobertram/Minimal_TRM.git
+                gpu: NVIDIA A100-SXM4-80GB
+                gpu_count: 4
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-477be773-1ff8-894e-1a94-fb728481f332
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-3a915af2-8e05-3b33-efb8-f1e66b040094
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-d2cdfe87-dbab-13d9-9e61-7e3ee23ff979
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A100-SXM4-80GB
+                      uuid: GPU-d561523f-c3c8-3df5-f72e-75e7290f6880
+                host: mach-1
+                memory:
+                    total: "540658008064"
+                os: Linux-6.14.3-arch1-1-x86_64-with-glibc2.41
+                program: /home/fawler/tbertram/Minimal_TRM/main.py
+                python: CPython 3.11.6
+                root: /home/fawler/tbertram/Minimal_TRM
+                startedAt: "2025-10-20T19:32:47.951078Z"
+                writerId: 6ettul2dvuv72p0t0w6rqfmwqov5t8ql
+        m: []
+        python_version: 3.11.6
+        t:
+            "1":
+                - 1
+                - 41
+                - 105
+            "2":
+                - 1
+                - 41
+                - 105
+            "3":
+                - 61
+            "4": 3.11.6
+            "5": 0.21.1
+            "12": 0.21.1
+            "13": linux-x86_64

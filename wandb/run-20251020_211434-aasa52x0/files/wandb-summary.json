@@ -1,0 +1,1 @@
+{"train/loss":0.5166994333267212,"_runtime":880.448395516,"train/bce_loss_mean":0.2561550438404083,"_wandb":{"runtime":880},"test/acc":0.9502,"_timestamp":1.7609885412563386e+09,"train/halted_pct":0.99609375,"_step":2037,"train/ce_loss_mean":0.26054438948631287,"train/inner_step":0}

@@ -1,0 +1,1 @@
+{"_step":2601,"train/bce_loss_mean":0.3922250270843506,"train/halted_pct":0.9895833730697632,"train/loss":0.933131217956543,"_runtime":380.272991266,"train/inner_step":0,"test/acc":0.9504,"train/ce_loss_mean":0.5409061908721924,"_timestamp":1.7609858788138819e+09,"_wandb":{"runtime":380}}

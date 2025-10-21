@@ -1,0 +1,6 @@
+{"time":"2025-10-20T17:09:00.010881679+02:00","level":"INFO","msg":"stream: starting","core version":"0.21.1"}
+{"time":"2025-10-20T17:09:00.372562543+02:00","level":"INFO","msg":"stream: created new stream","id":"lbktepa3"}
+{"time":"2025-10-20T17:09:00.372702408+02:00","level":"INFO","msg":"stream: started","id":"lbktepa3"}
+{"time":"2025-10-20T17:09:00.372778943+02:00","level":"INFO","msg":"handler: started","stream_id":"lbktepa3"}
+{"time":"2025-10-20T17:09:00.372802167+02:00","level":"INFO","msg":"sender: started","stream_id":"lbktepa3"}
+{"time":"2025-10-20T17:09:00.372793751+02:00","level":"INFO","msg":"writer: started","stream_id":"lbktepa3"}

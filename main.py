@@ -12,7 +12,7 @@ import wandb
 
 
 def main(net, train_loader, test_loader, epochs):
-    opt = torch.optim.AdamW(net.parameters(), lr = 1e-3)
+    opt = torch.optim.AdamW(net.parameters(), lr = 1e-4)
 
     
     ema_net = copy.deepcopy(net)
@@ -49,7 +49,7 @@ def main(net, train_loader, test_loader, epochs):
 if __name__ == "__main__":
     device = "cuda:0"
     hidden_size = 128
-    net = TRM_MLP(
+    net = TRM_CNN(
             input_size=28**2, 
             hidden_size=hidden_size, 
             output_size=10,
@@ -77,13 +77,13 @@ if __name__ == "__main__":
         transform=transform
     )
 
-    train_loader = DataLoader(train_dataset, batch_size=128, shuffle=True)
+    train_loader = DataLoader(train_dataset, batch_size=256, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False)
 
     main(
         net = net, 
         train_loader= train_loader,
         test_loader=test_loader,
-        epochs = 20
+        epochs = 100
     )
     

@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/fawler/tbertram/Minimal_TRM/main.py", line 83, in <module>
+    main(
+  File "/home/fawler/tbertram/Minimal_TRM/main.py", line 30, in main
+    test_acc = test_accuracy(
+               ^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/Minimal_TRM/training.py", line 81, in test_accuracy
+    (y, z), y_hat, q_hat = deep_recursion(net, x, y, z, halted)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/Minimal_TRM/training.py", line 16, in deep_recursion
+    y, z = latent_recursion(net, x, y, z, halted, n)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/Minimal_TRM/training.py", line 9, in latent_recursion
+    z = net(z, y, initial_input = x, halted = halted)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fawler/tbertram/Minimal_TRM/models.py", line 155, in forward
+    hidden_states = hidden_states.to(self.device)
+                    ^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'to'

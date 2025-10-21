@@ -1,0 +1,44 @@
+New test acc: 0.108
+Training: 100%|████████████████████████████████| 235/235 [00:23<00:00, 10.06it/s, loss=1.1784]
+New test acc: 0.8369
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:14<00:00, 16.39it/s]
+/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/numpy/_core/fromnumeric.py:3904: RuntimeWarning: Mean of empty slice.
+  return _methods._mean(a, axis=axis, dtype=dtype,
+/home/fawler/tbertram/.pyenv/versions/python311-env/lib/python3.11/site-packages/numpy/_core/_methods.py:147: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+New test acc: 0.8925
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:14<00:00, 16.18it/s]
+New test acc: 0.9165
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:14<00:00, 16.38it/s]
+New test acc: 0.9323
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:15<00:00, 15.57it/s]
+New test acc: 0.9426
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:15<00:00, 15.26it/s]
+New test acc: 0.9485
+Training: 100%|█████████████████████████████████████████████| 235/235 [00:15<00:00, 14.97it/s]
+New test acc: 0.9539
+Training: 100%|████████████████████████████████| 235/235 [00:15<00:00, 15.32it/s, loss=0.5244]
+New test acc: 0.9581
+Training: 100%|████████████████████████████████| 235/235 [00:17<00:00, 13.80it/s, loss=0.4736]
+New test acc: 0.9555
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 11.76it/s, loss=1.0760]
+New test acc: 0.9509
+Training: 100%|████████████████████████████████| 235/235 [00:16<00:00, 14.25it/s, loss=0.5613]
+New test acc: 0.9487
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 11.95it/s, loss=0.7069]
+New test acc: 0.9488
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 11.83it/s, loss=0.4262]
+New test acc: 0.9481
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 12.29it/s, loss=0.6288]
+New test acc: 0.9491
+Training: 100%|████████████████████████████████| 235/235 [00:16<00:00, 14.24it/s, loss=0.2969]
+New test acc: 0.949
+Training: 100%|████████████████████████████████| 235/235 [00:15<00:00, 15.35it/s, loss=0.3306]
+New test acc: 0.9513
+Training: 100%|████████████████████████████████| 235/235 [00:14<00:00, 16.10it/s, loss=0.3286]
+New test acc: 0.952
+Training: 100%|████████████████████████████████| 235/235 [00:17<00:00, 13.65it/s, loss=0.5573]
+New test acc: 0.9532
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 12.00it/s, loss=1.0415]
+New test acc: 0.9504
+Training: 100%|████████████████████████████████| 235/235 [00:19<00:00, 11.91it/s, loss=0.9331]

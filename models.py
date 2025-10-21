@@ -8,7 +8,7 @@ class TRM_MLP(nn.Module):
                 device,
                 hidden_size,
                 output_size,
-                dropout = 0.0):
+                dropout = 0.1):
         super().__init__()
 
         self.input_embedding = nn.Linear(input_size, hidden_size)
@@ -29,11 +29,19 @@ class TRM_MLP(nn.Module):
         self.output_head = nn.Sequential(
             nn.LayerNorm(hidden_size),
             nn.GELU(),
-            nn.Linear(hidden_size, output_size),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_size, hidden_size),
+            nn.LayerNorm(hidden_size),
+            nn.GELU(),
+            nn.Linear(hidden_size, output_size)
         )
 
         # head to transform latent to stopping criterium
         self.q_head = nn.Sequential(
+            nn.LayerNorm(hidden_size),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_size, hidden_size),
             nn.LayerNorm(hidden_size),
             nn.GELU(),
             nn.Linear(hidden_size, 1),
@@ -72,6 +80,7 @@ class TRM_MLP(nn.Module):
 
         candidate = hidden_states + injection + initial_input
         candidate = self.main_block(candidate)
+        #candidate = candidate + hidden_states + injection
         hidden_states = torch.where(halted, hidden_states, candidate)
         return hidden_states
 
@@ -152,17 +161,19 @@ class TRM_CNN(nn.Module):
 
         candidate = hidden_states + injection + initial_input
         candidate = self.main_block(candidate)
-        y_out = self.output_head(candidate)
-        q_out = self.q_head(candidate)
 
         hidden_states = torch.where(halted.unsqueeze(-1).unsqueeze(-1), hidden_states, candidate)
-        return hidden_states, y_out, q_out
+        return hidden_states
 
     
     def init_carries(self, batch_size):
         y_0 = self.y_init_val.to(self.device).repeat(batch_size, 1,1,1)
         z_0 = self.z_init_val.to(self.device).repeat(batch_size, 1,1,1)
         return y_0, z_0
+
+    
+    def get_outputs(self, solution):
+        return self.output_head(solution), self.q_head(solution)
 
         
 
