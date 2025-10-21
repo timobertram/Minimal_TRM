@@ -7,7 +7,7 @@ import wandb
 def latent_recursion(net, x, y, z, halted, n = 6):
     for i in range(n):
         z = net(z, y, initial_input = x, halted = halted)
-    y = net(y, z)
+    y = net(y, z, halted = halted)
     return y, z
 
 def deep_recursion(net, x, y, z, halted, n = 6, T = 3):
