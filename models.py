@@ -94,7 +94,7 @@ class TRM_CNN(nn.Module):
                 device,
                 hidden_size = 128,
                 output_size = 10,
-                dropout = 0.4):
+                dropout = 0.1):
         super().__init__()
 
         self.input_embedding = nn.Identity()

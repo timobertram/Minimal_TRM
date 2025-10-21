@@ -27,6 +27,7 @@ def main(net, train_loader, test_loader, epochs):
     global_step = 0
 
     for e in range(epochs):
+        wandb.log({"epoch":e}, step = global_step)
         test_acc = test_accuracy(
             net = ema_net, 
             test_loader=test_loader,
@@ -47,9 +48,9 @@ def main(net, train_loader, test_loader, epochs):
 
 
 if __name__ == "__main__":
-    device = "cuda:0"
+    device = "cuda:1"
     hidden_size = 128
-    net = TRM_CNN(
+    net = TRM_MLP(
             input_size=28**2, 
             hidden_size=hidden_size, 
             output_size=10,

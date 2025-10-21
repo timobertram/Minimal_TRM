@@ -78,7 +78,8 @@ def test_accuracy(net, test_loader, global_step):
 
         halted = torch.zeros(x.size(0)).bool()
         y,z = net.init_carries(batch_size = x.size(0))
-        (y, z), y_hat, q_hat = deep_recursion(net, x, y, z, halted)
+        for step in range(16):
+            (y, z), y_hat, q_hat = deep_recursion(net, x, y, z, halted)
         pred = y_hat.argmax(dim = 1)
         correct += (pred == y_target).sum().item()
         total += y_target.size(0)
