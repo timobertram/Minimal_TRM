@@ -1,4 +1,4 @@
-from training import deep_supervision, test_accuracy
+from training import deep_supervision, accuracy
 from models import TRM_MLP, TRM_CNN
 
 import torch
@@ -11,8 +11,8 @@ from torchinfo import summary
 import wandb
 
 
-def main(net, train_loader, test_loader, epochs):
-    opt = torch.optim.AdamW(net.parameters(), lr = 1e-4)
+def main(net, config, train_loader, train_acc_loader, test_loader, epochs):
+    opt = torch.optim.AdamW(net.parameters(), lr = config["lr"])
 
     
     ema_net = copy.deepcopy(net)
@@ -20,42 +20,62 @@ def main(net, train_loader, test_loader, epochs):
     for name,param in ema_net.named_parameters():
         param.requires_grad = False
 
-    train_losses = []
-    test_accuracies = []
 
-    wandb_run = wandb.init(project="TRM_MNIST")
+    wandb_run = wandb.init(project="TRM_MNIST", config = config)
     global_step = 0
 
     for e in range(epochs):
         wandb.log({"epoch":e}, step = global_step)
-        test_acc = test_accuracy(
+        train_acc = accuracy(
             net = ema_net, 
-            test_loader=test_loader,
+            loader=train_acc_loader,
+            global_step = global_step,
+        )
+        print(f"New train acc: {train_acc}")
+        test_acc = accuracy(
+            net = ema_net, 
+            loader=test_loader,
             global_step = global_step,
         )
         print(f"New test acc: {test_acc}")
-        test_accuracies.append(test_acc)
+
+        wandb.log({
+            "train/acc": train_acc,
+            "test/acc" : test_acc,
+        }, step=global_step)
 
         train_loss, global_step = deep_supervision(
+            epoch = e,
             net = net,
             ema_net = ema_net,
+            gamma = config["gamma"],
             opt = opt,
             train_loader=train_loader,
             global_step = global_step,
         )
-        train_losses.append(np.mean(train_loss))
 
 
 
 if __name__ == "__main__":
-    device = "cuda:1"
-    hidden_size = 128
-    net = TRM_MLP(
+    device = "cuda:2"
+    config = {
+        "lr": 1e-3,
+        "filter_size": [64,128],
+        "hidden_size": 128,
+        "dropout": 0.0,
+        "gamma": 0.99,
+        "batch_size": 256,
+        "model_type": "TRM_CNN"
+
+    }
+    cls =  globals()[config["model_type"]]
+    net = cls(
             input_size=28**2, 
-            hidden_size=hidden_size, 
             output_size=10,
-            device = device
+            device = device,
+            **config,
     )
+
 
     print(summary(model = net))
 
@@ -78,13 +98,31 @@ if __name__ == "__main__":
         transform=transform
     )
 
-    train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=1000, shuffle=False)
+    train_loader = DataLoader(train_dataset, 
+                                batch_size=config["batch_size"],
+                                shuffle=True,
+                                pin_memory= True,
+                                num_workers= 8,
+                                prefetch_factor=2)
+    train_acc_loader = DataLoader(train_dataset, 
+                                batch_size=2048, 
+                                shuffle=True,
+                                pin_memory= True,
+                                num_workers= 8,
+                                prefetch_factor=2)
+    test_loader = DataLoader(test_dataset, 
+                            batch_size=2048, 
+                            shuffle=False,
+                            pin_memory= True,
+                            num_workers= 8,
+                            prefetch_factor=2)
 
     main(
         net = net, 
+        config = config,
         train_loader= train_loader,
+        train_acc_loader = train_acc_loader,
         test_loader=test_loader,
-        epochs = 100
+        epochs = 50
     )
     
